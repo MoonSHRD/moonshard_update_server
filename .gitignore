@@ -1,0 +1,10 @@
+git comm# Node.js package manager
+node_modules
+
+.idea
+uploads/Linux/
+uploads/Windows_NT/
+
+package-lock.json
+yarn.lock
+
