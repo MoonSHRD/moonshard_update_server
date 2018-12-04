@@ -5,27 +5,15 @@ const data = require('./update.json')
 
 
 
-app.get('/updates/Windows_NT/:file(*)', function (req, res) {
+app.get('/updates/:file(*)', function (req, res) {
+    res.header("Content-Type", "jsapplication/x-7z-compressed");
     // res.send('QmNfnEubpokXZxYmMd3bTu6jT1v2c7azsU9KGBUpiW2B4e');
     var file = req.params.file;
-    var fileLocation = path.join('./uploads/Windows_NT/',file);
-    console.log(fileLocation);
+    var fileLocation = path.join('./updates/',file);
     res.download(fileLocation, file);
     console.log(fileLocation, file)
 })
 
-app.get('/updates/Linux/:file(*)', function (req, res) {
-    // res.send('QmNfnEubpokXZxYmMd3bTu6jT1v2c7azsU9KGBUpiW2B4e');
-    var file = req.params.file;
-    var fileLocation = path.join('./uploads/Linux/',file);
-    console.log(fileLocation);
-    res.download(fileLocation, file);
-    console.log(fileLocation, file)
-})
-
-app.get('/:file(*)', function (req, res) {
-   res.json(data);
-})
 
 var server = app.listen(8081, function () {
     var host = server.address().address
